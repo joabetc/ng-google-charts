@@ -1,0 +1,37 @@
+{
+  "name": "ng-google-charts",
+  "description": "An AngularJS Component for Google Charts",
+  "version": "0.1.0",
+  "main": [
+    "dist/ng-google-charts.js",
+    "dist/ng-google-charts.css"
+  ],
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "Joabe Costa",
+  "license": "MIT",
+  "bugs": {
+    "url": ""
+  },
+  "dependencies": {
+    "angular": "~1.3.15"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "test",
+    "src",
+    "demo",
+    ".travis.yml",
+    ".editorconfig",
+    ".gitignore",
+    "gulpfile.js",
+    "package.json"
+  ],
+  "devDependencies": {
+    "angular-mocks": "~1.3.15"
+  }
+}
