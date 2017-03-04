@@ -3,8 +3,6 @@
 
   angular
     .module('ngGoogleCharts', [
-      'ngGoogleCharts.controllers',
-      'ngGoogleCharts.directives'
     ]);
 
 })(window, window.angular);

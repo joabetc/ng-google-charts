@@ -6,6 +6,7 @@ var minifyCSS = require('gulp-minify-css');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var header = require('gulp-header');
+var sass = require('gulp-sass');
 var livereload = require('gulp-livereload');
 var webpack = require('gulp-webpack');
 var wait = require('gulp-wait');
@@ -60,6 +61,14 @@ gulp.task('jshint', function() {
     .pipe(livereload());
 });
 
+gulp.task('sass', function() {
+  return gulp.src(SOURCE.STYLES + '*.scss')
+    .pipe(sass()).on('error', handleErr)
+    .pipe(gulp.dest(PATH.DIST))
+    .pipe(wait(500))
+    .pipe(livereload());
+});
+
 gulp.task('convert-and-concat', function() {
   return gulp.src([
       SOURCE.SCRIPTS + '*.js'
@@ -98,7 +107,7 @@ gulp.task('banner', function() {
 });
 
 gulp.task('webpack', function() {
-  return gulp.src(SOURCE.SCRIPTS + '*.js')
+  return gulp.src([SOURCE.SCRIPTS + '*.module.js', SOURCE.SCRIPTS + '*.service.js', SOURCE.SCRIPTS + '*.component.js'])
     .pipe(webpack({
       output: {
         path: __dirname + PATH.DEMO.substr(1),
@@ -119,6 +128,7 @@ gulp.task('watch', ['server', 'webpack'], function() {
     reloadPage: 'demo/index.html'
   });
   gulp.watch(SOURCE.SCRIPTS + '*.js', ['jshint', 'webpack']);
+  gulp.watch(SOURCE.STYLES + '*.scss', ['sass']);
 });
 
 var server;
@@ -158,6 +168,7 @@ gulp.task('test-e2e', ['server'], function() {
 
 gulp.task('build', ['clean'], function(cb) {
   runSequence(
+    'sass',
     'convert-and-concat',
     'uglify',
     'minify',
