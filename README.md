@@ -8,6 +8,14 @@ An AngularJS Component for Google Charts
 bower install ng-google-charts --production
 ```
 
+## Usage requirement
+
+Declare the following dependency in your index.html or equivalent:
+
+````
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+````
+
 ## Development
 
 1. Clone the repo or [download]().
