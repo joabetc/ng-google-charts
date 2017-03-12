@@ -11,14 +11,14 @@
 				}
 			});
 
-    ngGoogleChartsController.$inject = ['googleChartsLoaderService'];
+    ngGoogleChartsController.$inject = ['$scope','googleChartsLoaderService'];
 
-    function ngGoogleChartsController(googleChartsLoaderService) {
+    function ngGoogleChartsController($scope, googleChartsLoaderService) {
         
         var vm = angular.extend(this, {
         	wrapper: null,
         	dat: this.data,
-        	height: 0
+        	id: $scope.$id
         });
 
 	    vm.$onChanges = (changesObj) => {
@@ -32,7 +32,7 @@
 	                    vm.wrapper = new google.visualization.ChartWrapper(vm.dat);
 	                    vm.wrapper.setDataTable(vm.dat.dataTable);
 	                    vm.wrapper.setOptions(vm.dat.options);
-	                    vm.wrapper.draw(document.querySelector('#googleChartDiv'));
+	                    vm.wrapper.draw(document.querySelector('#googleChartDiv_' + vm.id));
 	                }
 	            }, function(error) {
 	                console.log(error);
