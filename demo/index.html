@@ -17,6 +17,17 @@
 
 </head>
 <body ng-app="demoApp" ng-controller="demoMainController as vm" ng-cloak>
-  <ng-google-charts data="vm.ganttChartOptions"></ng-google-charts>
+  <div>
+    <h1>Pie Chart Sample</h1>
+    <ng-google-charts data="vm.pieChartOptions"></ng-google-charts>  
+  </div>
+  <div>
+    <h1>Column Chart Sample</h1>
+    <ng-google-charts data="vm.columnChartOptions"></ng-google-charts>  
+  </div>
+  <div>
+    <h1>Gantt Chart Sample</h1>
+    <ng-google-charts data="vm.ganttChartOptions"></ng-google-charts>  
+  </div>  
 </body>
 </html>
