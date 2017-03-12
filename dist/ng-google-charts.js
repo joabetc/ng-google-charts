@@ -6,49 +6,46 @@
 'use strict';
 
 (function (window, angular, undefined) {
-	'use strict';
+				'use strict';
 
-	angular.module('ngGoogleCharts').component('ngGoogleCharts', {
-		templateUrl: '/src/scripts/ng-google-charts.template.html',
-		controller: ngGoogleChartsController,
-		bindings: {
-			data: '<',
-			lines: '@'
-		}
-	});
+				angular.module('ngGoogleCharts').component('ngGoogleCharts', {
+								templateUrl: '/src/scripts/ng-google-charts.template.html',
+								controller: ngGoogleChartsController,
+								bindings: {
+												data: '<'
+								}
+				});
 
-	ngGoogleChartsController.$inject = ['$document', 'googleChartsLoaderService'];
+				ngGoogleChartsController.$inject = ['$scope', 'googleChartsLoaderService'];
 
-	/* @ngInject */
-	function ngGoogleChartsController($document, googleChartsLoaderService) {
-		var vm = this;
+				function ngGoogleChartsController($scope, googleChartsLoaderService) {
+								var _this = this;
 
-		vm.wrapper = null;
+								var vm = angular.extend(this, {
+												wrapper: null,
+												dat: this.data,
+												id: $scope.$id
+								});
 
-		vm.$onInit = function () {
+								vm.$onChanges = function (changesObj) {
+												if (vm.data != null) {
+																vm.dat = vm.data;
+												}
+												if (vm.dat != null) {
 
-			if (vm.dat === null || vm.dat === undefined) {
-				vm.dat = vm.data;
-			}
-			googleChartsLoaderService.load(vm.dat.chartType).then(function (response) {
-				console.log(response);
-				if (vm.wrapper === null) {
-					vm.wrapper = new google.visualization.ChartWrapper(vm.dat);
-				} else {
-					vm.wrapper.setDataTable(vm.dat.dataTable);
-					vm.wrapper.setOptions(vm.dat.options);
+																googleChartsLoaderService.load(_this.dat.chartType).then(function (response) {
+																				if (vm.wrapper == null) {
+																								vm.wrapper = new google.visualization.ChartWrapper(vm.dat);
+																								vm.wrapper.setDataTable(vm.dat.dataTable);
+																								vm.wrapper.setOptions(vm.dat.options);
+																								vm.wrapper.draw(document.querySelector('#googleChartDiv_' + vm.id));
+																				}
+																}, function (error) {
+																				console.log(error);
+																});
+												}
+								};
 				}
-				vm.wrapper.draw(document.getElementById("googleChartDiv"));
-			}, function (error) {
-				console.log(error);
-			});
-		};
-
-		vm.$onChanges = function (changesObj) {
-			vm.dat = vm.data;
-			vm.height = vm.dat.dataTable.length * 42 + 42;
-		};
-	}
 })(window, window.angular);
 'use strict';
 
