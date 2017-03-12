@@ -7,41 +7,37 @@
 			templateUrl: '/src/scripts/ng-google-charts.template.html',
 			controller: ngGoogleChartsController,
 			bindings: {
-				data: '<',
-				lines: '@'
+				data: '<'
 				}
 			});
 
-    ngGoogleChartsController.$inject = ['$document', 'googleChartsLoaderService'];
+    ngGoogleChartsController.$inject = ['googleChartsLoaderService'];
 
-    /* @ngInject */
-    function ngGoogleChartsController($document, googleChartsLoaderService) {
-        var vm = this; 
+    function ngGoogleChartsController(googleChartsLoaderService) {
         
-        vm.wrapper = null;
-
-	    vm.$onInit = () => {
-
-	        if (vm.dat === null || vm.dat === undefined) {
-	            vm.dat = vm.data;
-	        }
-	        googleChartsLoaderService.load(vm.dat.chartType).then(function(response) {
-	        	console.log(response);
-	            if (vm.wrapper === null) {
-	                vm.wrapper = new google.visualization.ChartWrapper(vm.dat);
-	            } else {
-	                vm.wrapper.setDataTable(vm.dat.dataTable);
-	                vm.wrapper.setOptions(vm.dat.options);
-	            }
-	            vm.wrapper.draw(document.getElementById("googleChartDiv"));
-	        }, function(error) {
-	            console.log(error);
-	        });
-	    };
+        var vm = angular.extend(this, {
+        	wrapper: null,
+        	dat: this.data,
+        	height: 0
+        });
 
 	    vm.$onChanges = (changesObj) => {
-	        vm.dat = vm.data;
-	    	vm.height = (vm.dat.dataTable.length * 42) + 42;
-	    };
+	        if (vm.data != null) {
+	            vm.dat = vm.data;
+	        }
+	        if (vm.dat != null) {
+	        
+	            googleChartsLoaderService.load(this.dat.chartType).then(function(response) {
+	                if (vm.wrapper == null) {
+	                    vm.wrapper = new google.visualization.ChartWrapper(vm.dat);
+	                    vm.wrapper.setDataTable(vm.dat.dataTable);
+	                    vm.wrapper.setOptions(vm.dat.options);
+	                    vm.wrapper.draw(document.querySelector('#googleChartDiv'));
+	                }
+	            }, function(error) {
+	                console.log(error);
+	            });
+	        }
+	    }
     }
 })(window, window.angular);
