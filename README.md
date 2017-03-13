@@ -1,6 +1,9 @@
 # ng-google-charts
 
-An AngularJS Component for Google Charts
+## What is it?
+
+An AngularJS Component for [Google Charts](https://developers.google.com/chart/).
+This component uses Google's [ChartWrapper](https://developers.google.com/chart/interactive/docs/drawing_charts#chartwrapper) to draw charts.
 
 ## Installation
 
