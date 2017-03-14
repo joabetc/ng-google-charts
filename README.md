@@ -13,12 +13,61 @@ bower install ng-google-charts --production
 
 ## Usage requirement
 
-Declare the following dependency in your index.html or equivalent:
+1. Declare the following dependency in your index.html or equivalent:
 
-````
+````html
 <script src="https://www.gstatic.com/charts/loader.js"></script>
 ````
 
+2. Declare `ngGoogleCharts` dependency in your main module.
+
+3. Insert the component where you want to use it:
+
+````html
+<ng-google-charts data="chartOptions"></ng-google-charts>
+````
+4. Format your data like this:
+
+````javascript
+this.chartOptions = {
+    chartType: 'Gantt',
+    dataTable: [
+      ['Task ID', 'TaskName', 'Resource', 'Start Date', 'End Date', 'Duration', 'Percent Complete', 'Dependencies'],
+      ['Research', 'Find sources', 'teste', new Date(2015, 12, 1), new Date(2016, 3, 5), 0,  100,  null],
+      ['Test', 'Find Test', 'run', new Date(2016, 1, 2), new Date(2016, 10, 5), 0,  100,  null]
+    ]
+  };
+````
+  The chartType should be one of the following values:
+  * AnnotationChart
+  * AreaChart
+  * Bar
+  * BarChart
+  * BubbleChart
+  * Calendar
+  * CandlestickChart
+  * ColumnChart
+  * ComboChart
+  * PieChart
+  * Gantt
+  * Gauge
+  * GeoChart
+  * Histogram
+  * Line
+  * LineChart
+  * Map
+  * OrgChart
+  * Sankey
+  * Scatter
+  * ScatterChart
+  * SteppedAreaChart
+  * Table
+  * Timeline
+  * TreeMap
+  * WordTree
+
+  The dataTable content should follow [ChartWrapper](https://developers.google.com/chart/interactive/docs/drawing_charts#chartwrapper) format.
+  
 ## Development
 
 1. Clone the repo or [download]().
