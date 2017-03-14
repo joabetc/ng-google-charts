@@ -31,6 +31,7 @@
     "coveralls": "^2.11.2",
     "del": "^1.1.1",
     "gulp": "^3.8.11",
+    "gulp-angular-embed-templates": "^2.3.0",
     "gulp-babel": "^5.1.0",
     "gulp-concat": "^2.5.0",
     "gulp-header": "~1.2.2",

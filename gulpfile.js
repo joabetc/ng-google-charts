@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var embed = require('gulp-angular-embed-templates');
 var jshint = require('gulp-jshint');
 var concat = require('gulp-concat');
 var babel = require('gulp-babel');
@@ -71,8 +72,11 @@ gulp.task('sass', function() {
 
 gulp.task('convert-and-concat', function() {
   return gulp.src([
-      SOURCE.SCRIPTS + '*.js'
+      SOURCE.SCRIPTS + '*.module.js', 
+      SOURCE.SCRIPTS + '*.service.js', 
+      SOURCE.SCRIPTS + '*.component.js'
     ])
+    .pipe(embed())
     .pipe(babel())
     .pipe(concat(pkg.name + '.js'))
     .pipe(gulp.dest(PATH.DIST));
@@ -107,7 +111,11 @@ gulp.task('banner', function() {
 });
 
 gulp.task('webpack', function() {
-  return gulp.src([SOURCE.SCRIPTS + '*.module.js', SOURCE.SCRIPTS + '*.service.js', SOURCE.SCRIPTS + '*.component.js'])
+  return gulp.src([
+      SOURCE.SCRIPTS + '*.module.js', 
+      SOURCE.SCRIPTS + '*.service.js', 
+      SOURCE.SCRIPTS + '*.component.js'
+    ])
     .pipe(webpack({
       output: {
         path: __dirname + PATH.DEMO.substr(1),

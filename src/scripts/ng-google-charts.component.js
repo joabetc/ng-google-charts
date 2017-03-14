@@ -4,7 +4,7 @@
   angular
         .module('ngGoogleCharts')
         .component('ngGoogleCharts', {
-			templateUrl: '/src/scripts/ng-google-charts.template.html',
+			templateUrl: 'ng-google-charts.template.html',
 			controller: ngGoogleChartsController,
 			bindings: {
 				data: '<'
