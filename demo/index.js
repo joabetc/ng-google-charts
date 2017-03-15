@@ -12,8 +12,11 @@ angular
         chartType: 'Gantt',
         dataTable: [
           ['Task ID', 'TaskName', 'Resource', 'Start Date', 'End Date', 'Duration', 'Percent Complete', 'Dependencies'],
-          ['Research', 'Find sources', 'teste', new Date(2015, 12, 1), new Date(2016, 3, 5), 0,  100,  null],
-          ['Test', 'Find Test', 'run', new Date(2016, 1, 2), new Date(2016, 10, 5), 0,  100,  null]
+          ['Research', 'Find sources', null, new Date(2015, 0, 1), new Date(2015, 0, 5), null,  100,  null],
+          ['Write', 'Write paper', 'write', null, new Date(2015, 0, 9), daysToMilliseconds(3), 25, 'Research,Outline'],
+          ['Cite', 'Create bibliography', 'write', null, new Date(2015, 0, 7), daysToMilliseconds(1), 20, 'Research'],
+          ['Complete', 'Hand in paper', 'complete', null, new Date(2015, 0, 10), daysToMilliseconds(1), 0, 'Cite,Write'],
+          ['Outline', 'Outline paper', 'write', null, new Date(2015, 0, 6), daysToMilliseconds(1), 100, 'Research']
         ]
       };
 
@@ -37,4 +40,8 @@ angular
         ],
         options: {title: 'My Daily Activities'}
       }
+
+    function daysToMilliseconds(days) {
+      return days * 24 * 60 * 60 * 1000;
+    }
   });
