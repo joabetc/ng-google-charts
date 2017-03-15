@@ -20,6 +20,7 @@ var st = require('st');
 var path = require('path');
 var karma = require('karma').server;
 var pkg = require('./package');
+var gutil = require('gulp-util');
 var jshintConfig = pkg.jshintConfig;
 
 var BANNER = [
@@ -35,12 +36,13 @@ var PATH = {
   SOURCE: './src/',
   TEST: './test/',
   DEMO: './demo/',
-  DIST: './dist/'
+  DIST: './dist/',
+  EMBED: './embed/'
 };
 
 var SOURCE = {
   SCRIPTS: PATH.SOURCE + 'scripts/',
-  STYLES: PATH.SOURCE + 'styles/',
+  STYLES: PATH.SOURCE + 'styles/'
 };
 
 var handleErr = function(err) {
@@ -110,11 +112,17 @@ gulp.task('banner', function() {
     .pipe(gulp.dest(PATH.DIST));
 });
 
-gulp.task('webpack', function() {
+gulp.task('embed', function() {
+  return gulp.src(SOURCE.SCRIPTS + '*.component.js')
+    .pipe(embed())
+    .pipe(gulp.dest(PATH.EMBED));
+});
+
+gulp.task('webpack', ['embed'], function() {
   return gulp.src([
       SOURCE.SCRIPTS + '*.module.js', 
       SOURCE.SCRIPTS + '*.service.js', 
-      SOURCE.SCRIPTS + '*.component.js'
+      PATH.EMBED + '*.component.js'
     ])
     .pipe(webpack({
       output: {
