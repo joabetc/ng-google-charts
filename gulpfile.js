@@ -72,13 +72,12 @@ gulp.task('sass', function() {
     .pipe(livereload());
 });
 
-gulp.task('convert-and-concat', function() {
+gulp.task('convert-and-concat', ['embed'], function() {
   return gulp.src([
       SOURCE.SCRIPTS + '*.module.js', 
       SOURCE.SCRIPTS + '*.service.js', 
-      SOURCE.SCRIPTS + '*.component.js'
+      PATH.EMBED + '*.component.js'
     ])
-    .pipe(embed())
     .pipe(babel())
     .pipe(concat(pkg.name + '.js'))
     .pipe(gulp.dest(PATH.DIST));
