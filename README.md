@@ -7,9 +7,15 @@ This component uses Google's [ChartWrapper](https://developers.google.com/chart/
 
 ## Installation
 
+with bower:
 ```console
 bower install ng-google-charts --production
 ```
+
+with npm:
+````console
+npm install ng-google-charts --save
+````
 
 ## Usage requirement
 
