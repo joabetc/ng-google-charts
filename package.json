@@ -1,7 +1,7 @@
 {
   "name": "ng-google-charts",
   "description": "An AngularJS Component for Google Charts",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "dist/ng-google-charts.js",
   "keywords": [],
   "repository": {
