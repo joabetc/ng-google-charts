@@ -25,14 +25,19 @@ bower install ng-google-charts --production
 <script src="libs/ng-google-charts/dist/ng-google-charts.js"></script>
 ````
 
-2. Declare `ngGoogleCharts` dependency in your main module.
+3. Declare `ngGoogleCharts` dependency in your main module.
 
-3. Insert the component where you want to use it:
+````javascript
+angular
+  .module('yourModule', ['ngGoogleCharts'])...
+````
+
+4. Insert the component where you want to use it:
 
 ````html
 <ng-google-charts data="chartOptions"></ng-google-charts>
 ````
-4. Format your data like this:
+5. Format your data like this:
 
 ````javascript
 this.chartOptions = {
