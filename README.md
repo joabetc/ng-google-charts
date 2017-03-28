@@ -19,6 +19,12 @@ bower install ng-google-charts --production
 <script src="https://www.gstatic.com/charts/loader.js"></script>
 ````
 
+2. Also add the following declaration to your index.html or equivalent:
+
+````html
+<script src="libs/ng-google-charts/dist/ng-google-charts.js"></script>
+````
+
 2. Declare `ngGoogleCharts` dependency in your main module.
 
 3. Insert the component where you want to use it:
