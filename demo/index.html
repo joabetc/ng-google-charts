@@ -10,9 +10,6 @@
 
   <script src="https://www.gstatic.com/charts/loader.js"></script>
 
-  <script src="../bower_components/angular/angular.js"></script>
-
-  <script src="bundle.js"></script>
   <script src="index.js"></script>
 
 </head>
@@ -30,4 +27,18 @@
     <ng-google-charts data="vm.ganttChartOptions"></ng-google-charts>  
   </div>  
 </body>
+<script>
+  if (window.location.hostname == "joabetc.github.io") {
+    var scripts = ["https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js", "/ng-google-charts/dist/ng-google-charts.min.js"];
+  } else {
+    var scripts = ["../bower_components/angular/angular.js", "bundle.js"];
+  }
+
+  for (var i = 0; i < scripts.length; i++) {
+    var script = document.createElement("script"); 
+    script.type = "text/javascript"; 
+    script.src = scripts[i];
+    document.head.appendChild(script);
+  }
+</script>
 </html>
