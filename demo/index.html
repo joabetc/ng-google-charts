@@ -28,10 +28,17 @@
   </div>  
 </body>
 <script>
+  var scripts = [
+    "https://www.gstatic.com/charts/loader.js",
+    "index.js"
+  ];
+
   if (window.location.hostname == "joabetc.github.io") {
-    var scripts = ["https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js", "/ng-google-charts/dist/ng-google-charts.min.js"];
+    scripts.push("https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js");
+    scripts.push("/ng-google-charts/dist/ng-google-charts.min.js");
   } else {
-    var scripts = ["../bower_components/angular/angular.js", "bundle.js"];
+    scripts.push("../bower_components/angular/angular.js");
+    scripts.push("bundle.js");
   }
 
   for (var i = 0; i < scripts.length; i++) {
