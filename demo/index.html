@@ -19,13 +19,17 @@
       scripts.push("bundle.js");
     }
 
-    scripts.push("index.js");
-
     for (var i = 0; i < scripts.length; i++) {
-      var script = document.createElement("script"); 
-      script.type = "text/javascript"; 
-      script.src = scripts[i];
-      document.head.appendChild(script);
+      document.head.appendChild(createScript(scripts[i]));
+    }
+
+    document.head.appendChild(createScript("index.js"));
+
+    function createScript(path) {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src = path;
+      return script;
     }
   </script>
 
