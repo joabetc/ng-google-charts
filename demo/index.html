@@ -8,6 +8,28 @@
   <link rel="stylesheet" href="index.css">
   <link rel="stylesheet" href="../dist/ng-google-charts.css">
 
+  <script>
+    var scripts = [
+      "https://www.gstatic.com/charts/loader.js",
+      "index.js"
+    ];
+
+    if (window.location.hostname == "joabetc.github.io") {
+      scripts.push("https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js");
+      scripts.push("/ng-google-charts/dist/ng-google-charts.min.js");
+    } else {
+      scripts.push("../bower_components/angular/angular.js");
+      scripts.push("bundle.js");
+    }
+
+    for (var i = 0; i < scripts.length; i++) {
+      var script = document.createElement("script"); 
+      script.type = "text/javascript"; 
+      script.src = scripts[i];
+      document.head.appendChild(script);
+    }
+  </script>
+  
   <script src="https://www.gstatic.com/charts/loader.js"></script>
 
   <script src="index.js"></script>
@@ -27,25 +49,4 @@
     <ng-google-charts data="vm.ganttChartOptions"></ng-google-charts>  
   </div>  
 </body>
-<script>
-  var scripts = [
-    "https://www.gstatic.com/charts/loader.js",
-    "index.js"
-  ];
-
-  if (window.location.hostname == "joabetc.github.io") {
-    scripts.push("https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js");
-    scripts.push("/ng-google-charts/dist/ng-google-charts.min.js");
-  } else {
-    scripts.push("../bower_components/angular/angular.js");
-    scripts.push("bundle.js");
-  }
-
-  for (var i = 0; i < scripts.length; i++) {
-    var script = document.createElement("script"); 
-    script.type = "text/javascript"; 
-    script.src = scripts[i];
-    document.head.appendChild(script);
-  }
-</script>
 </html>
