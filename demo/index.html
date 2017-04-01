@@ -9,10 +9,7 @@
   <link rel="stylesheet" href="../dist/ng-google-charts.css">
 
   <script>
-    var scripts = [
-      "https://www.gstatic.com/charts/loader.js",
-      "index.js"
-    ];
+    var scripts = ["https://www.gstatic.com/charts/loader.js"];
 
     if (window.location.hostname == "joabetc.github.io") {
       scripts.push("https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js");
@@ -21,6 +18,8 @@
       scripts.push("../bower_components/angular/angular.js");
       scripts.push("bundle.js");
     }
+
+    scripts.push("index.js");
 
     for (var i = 0; i < scripts.length; i++) {
       var script = document.createElement("script"); 
