@@ -6,3 +6,5 @@
     ]);
 
 })(window, window.angular);
+
+module.exports = angular.module('ngGoogleCharts').name;

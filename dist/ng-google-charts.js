@@ -1,6 +1,6 @@
 /**
- * ng-google-charts v0.1.0 ()
- * Copyright 2017 Joabe Costa
+ * ng-google-charts v0.1.1 ()
+ * Copyright 2017 Joabe Costa <joabetc@hotmail.com> (https://github.com/joabetc)
  * Licensed under MIT
  */
 'use strict';
@@ -10,6 +10,8 @@
 
   angular.module('ngGoogleCharts', []);
 })(window, window.angular);
+
+module.exports = angular.module('ngGoogleCharts').name;
 'use strict';
 
 (function (window, angular, undefined) {
