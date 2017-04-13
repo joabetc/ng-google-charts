@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>ng-google-charts</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="../dist/ng-google-charts.css">
+
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
+
+  <script>
+
+    loadScript('https://ajax.googleapis.com/ajax/libs/angularjs/1.5.11/angular.min.js', 
+      loadScript('/src/scripts/ng-google-charts.module.js', 
+        loadScript('/src/scripts/ng-google-charts.service.js', 
+        loadScript('index.js', console.log('fim')))));
+    
+    function loadScript(url, callback) {
+      // adding the script tag to the head as suggested before
+      var head = document.getElementsByTagName('head')[0];
+      var script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = url;
+
+      // then bind the event to the callback function 
+      // there are several events for cross browser compatibility
+      script.onreadystatechange = callback;
+      script.onload = callback;
+
+      // fire the loading
+      head.appendChild(script);
+    }
+
+  </script>
+
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.11/angular.min.js"></script>
+  <script src="bundle.js"></script>
+  <script src="index.js"></script>-->
+
+</head>
+<body ng-app="demoApp" ng-controller="demoMainController as vm" ng-cloak>
+  <div>
+    <h1>Pie Chart Sample</h1>
+    <ng-google-charts data="vm.pieChartOptions"></ng-google-charts>  
+  </div>
+  <div>
+    <h1>Column Chart Sample</h1>
+    <ng-google-charts data="vm.columnChartOptions"></ng-google-charts>  
+  </div>
+  <div>
+    <h1>Gantt Chart Sample</h1>
+    <ng-google-charts data="vm.ganttChartOptions"></ng-google-charts>  
+  </div>  
+</body>
+</html>
