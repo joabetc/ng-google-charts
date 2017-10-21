@@ -1,8 +1,3 @@
----
-title: My page
-permalink: /demo/
----
-
 # ng-google-charts
 
 ## What is it?
