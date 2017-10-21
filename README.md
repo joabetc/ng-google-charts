@@ -5,11 +5,6 @@
 An AngularJS Component for [Google Charts](https://developers.google.com/chart/).
 This component uses Google's [ChartWrapper](https://developers.google.com/chart/interactive/docs/drawing_charts#chartwrapper) to draw charts.
 
----
-title: Samples
-permalink: demo/index.html
----
-
 ## Installation
 
 with bower:
