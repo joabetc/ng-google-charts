@@ -12,9 +12,9 @@
 
   <script>
 
-    loadScript('index.js', 
-      loadScript('../dist/ng-google-charts.min.js',  
-        loadScript('https://ajax.googleapis.com/ajax/libs/angularjs/1.5.11/angular.min.js', console.log('fim'))));
+    loadScript('https://ajax.googleapis.com/ajax/libs/angularjs/1.5.11/angular.min.js', 
+      loadScript('index.js',  
+        loadScript('../dist/ng-google-charts.min.js', console.log('fim'))));
     
     function loadScript(url, callback) {
       // adding the script tag to the head as suggested before
