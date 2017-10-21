@@ -1,3 +1,8 @@
+---
+title: My page
+permalink: demo/index.html
+---
+
 # ng-google-charts
 
 ## What is it?
