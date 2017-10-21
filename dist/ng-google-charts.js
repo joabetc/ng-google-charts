@@ -11,7 +11,7 @@
   angular.module('ngGoogleCharts', []);
 })(window, window.angular);
 
-module.exports = angular.module('ngGoogleCharts').name;
+//module.exports = angular.module('ngGoogleCharts').name;
 'use strict';
 
 (function (window, angular, undefined) {
