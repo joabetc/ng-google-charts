@@ -1,6 +1,6 @@
 ---
 title: My page
-permalink: demo/index.html
+permalink: /demo/
 ---
 
 # ng-google-charts
