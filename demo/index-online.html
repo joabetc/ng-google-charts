@@ -12,20 +12,64 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.11/angular.min.js"></script>
   <script src="../dist/ng-google-charts.js"></script>
   <script src="index.js"></script>
+  <style>
+    h3 {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      font-weight: normal;
+      color: #159957;
+    }
+    pre {
+      display: block;
+      font-family: monospace;
+      white-space: pre;
+      margin: 1em 0;
+    }
+    div#chart {
+      width: 50%;
+      height: 200px;
+      float: left;
+    }
+    div#code {
+        height: 200px;
+    }
+    section {
+      width: 100%;
+    }
+  </style>
 
 </head>
 <body ng-app="demoApp" ng-controller="demoMainController as vm" ng-cloak>
-  <div>
-    <h1>Pie Chart Sample</h1>
-    <ng-google-charts data="vm.pieChartOptions"></ng-google-charts>  
-  </div>
-  <div>
-    <h1>Column Chart Sample</h1>
-    <ng-google-charts data="vm.columnChartOptions"></ng-google-charts>  
-  </div>
-  <div>
-    <h1>Gantt Chart Sample</h1>
+  <section>
+    <h3>Pie Chart Sample</h3>
+    <div id="chart">
+      <ng-google-charts data="vm.pieChartOptions"></ng-google-charts>
+    </div>
+    <div id="code">
+      <pre>
+          this.pieChartOptions = {
+            chartType: 'PieChart',
+            dataTable: [
+              ['Task', 'Hours per Day'],
+              ['Work',    11],
+              ['Eat',      2],
+              ['Commute',  2],
+              ['Watch TV', 2],
+              ['Sleep',    7]
+            ],
+            options: {title: 'My Daily Activities'}
+          }
+        </pre>  
+    </div>
+  </section>
+  <section>
+    <h3>Column Chart Sample</h3>
+    <ng-google-charts data="vm.columnChartOptions"></ng-google-charts>
+
+  </section>
+  <section>
+    <h3>Gantt Chart Sample</h3>
     <ng-google-charts data="vm.ganttChartOptions"></ng-google-charts>  
-  </div>  
+  </section>  
 </body>
 </html>
