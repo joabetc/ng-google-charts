@@ -7,6 +7,8 @@ This component uses Google's [ChartWrapper](https://developers.google.com/chart/
 
 ## Samples
 
+[demo/index-online.html](https://joabetc.github.io/ng-google-charts/demo/index-online.html)
+
 {% include demo.html %}
 
 ## Installation
