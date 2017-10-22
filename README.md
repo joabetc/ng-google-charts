@@ -7,7 +7,7 @@ This component uses Google's [ChartWrapper](https://developers.google.com/chart/
 
 ## Samples
 
-{% include demo/index.html %}
+{% demo/index.html %}
 
 ## Installation
 
