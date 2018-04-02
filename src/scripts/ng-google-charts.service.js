@@ -27,7 +27,7 @@
             Line: 'line',
             LineChart: 'corechart',
             Map: 'map',
-            OrgChart: 'orgChart',
+            OrgChart: 'orgchart',
             Sankey: 'sankey',
             Scatter: 'scatter',
             ScatterChart: 'corechart',
