@@ -9,6 +9,8 @@ This component uses Google's [ChartWrapper](https://developers.google.com/chart/
 
 [demo/index-online.html](https://joabetc.github.io/ng-google-charts/demo/index-online.html)
 
+[Stackblitz Sample](https://stackblitz.com/edit/ng-google-charts?embed=1&file=home/home.html)
+
 {% include demo.html %}
 
 ## Installation
