@@ -104,7 +104,14 @@
 																								vm.wrapper.setDataTable(vm.dat.dataTable);
 																								vm.wrapper.setOptions(vm.dat.options);
 																								vm.wrapper.draw(document.querySelector('#googleChartDiv_' + vm.id));
-																				}
+																				}   
+                                        else
+                                        {
+                                          // in case of refresh the data the google graph will update
+                                              vm.wrapper.setDataTable(vm.dat.dataTable);
+                                              vm.wrapper.setOptions(vm.dat.options);
+                                              vm.wrapper.draw(document.querySelector('#googleChartDiv_' + vm.id));
+                                        };
 																}, function (error) {
 																				console.log(error);
 																});
